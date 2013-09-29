@@ -3,7 +3,6 @@
  *
  * Created on February 18, 2006, 2:57 AM
  *
- * 
  */
 package com.analyticobjects.matchpoint.gui;
 
@@ -11,26 +10,22 @@ import com.analyticobjects.matchpoint.*;
 import com.analyticobjects.matchpoint.chart.*;
 import com.analyticobjects.matchpoint.chart.ChartPropertiesAction;
 import com.analyticobjects.matchpoint.icons.*;
-import com.analyticobjects.matchpoint.gui.*;
-import com.analyticobjects.matchpoint.numerics.*;
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.event.*;
 import static javax.swing.JSplitPane.*;
-import javax.swing.table.*;
 import javax.swing.border.*;
 import java.awt.event.*;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 /**
  * This class represents the primary MatchPoint MainFrame.
  * 
- * @author Joel
+ * @author Joel Bondurant
  */
 public class MainFrame extends JFrame
 {
     
     /**
-     * 
      * Creates a new instance of MainFrame
      */
     public MainFrame()
@@ -42,12 +37,21 @@ public class MainFrame extends JFrame
     public void initGUI()
     {
         Container content = this.getContentPane();
-        try  //try to use the system look and feel
-        {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        }catch(Exception e){} //oh well, metal look will do
-        
-   
+        try {
+            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                UIManager.setLookAndFeel(info.getClassName());
+                break;
+            }
+        }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            try  //try to use the system look and feel
+            {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch(ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex2){
+            
+            } // oh well, default look will do
+        }
         
         Toolkit kit = Toolkit.getDefaultToolkit();
         int screenDPI = kit.getScreenResolution();
@@ -86,8 +90,6 @@ public class MainFrame extends JFrame
         mainMenu.add(chartMenu);
         
         setJMenuBar(mainMenu);
-        
-        
         
         mainToolbar = new JToolBar();
         mainToolbar.setRollover(true);
@@ -180,7 +182,7 @@ public class MainFrame extends JFrame
 
         topPanes.setDividerLocation(305);
         allPanes.setDividerLocation(600);
-        chartMenu.add(ChartPropertiesAction.getInstance());//must be added after the chart is created!!!
+        chartMenu.add(ChartPropertiesAction.getInstance()); // must be added after the chart is created!!!
     }
     
     

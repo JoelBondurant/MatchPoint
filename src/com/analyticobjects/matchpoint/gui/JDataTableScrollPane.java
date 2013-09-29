@@ -1,11 +1,7 @@
 package com.analyticobjects.matchpoint.gui;
 
 import javax.swing.*;
-import javax.swing.table.*;
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.plaf.basic.*;
-import javax.swing.plaf.metal.*;
 
 
 /**
@@ -37,7 +33,7 @@ public class JDataTableScrollPane extends JTableScrollPane
     protected void resizeRowHeader(JTable jt)
     {
         try{this.strWidth = this.getGraphics().getFontMetrics().stringWidth(sampleDigit);}catch(Exception e){}
-        prefDim.setSize(20 + this.strWidth*(int)(Math.log10(activeRow+100)), 10);
+        prefDim.setSize(10 + 20 + this.strWidth*(int)(Math.log10(activeRow+100)), 10);
         jt.setPreferredScrollableViewportSize(prefDim);
         jt.revalidate();
     }

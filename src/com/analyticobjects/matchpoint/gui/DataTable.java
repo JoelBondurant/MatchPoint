@@ -9,10 +9,7 @@
 
 package com.analyticobjects.matchpoint.gui;
 
-import com.analyticobjects.matchpoint.*;
 import javax.swing.*;
-import javax.swing.event.*;
-import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.*;
 /**
