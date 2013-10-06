@@ -7,8 +7,6 @@
 package com.analyticobjects.matchpoint;
 
 import com.analyticobjects.matchpoint.gui.MainFrame;
-import java.util.prefs.*;
-import java.awt.*;
 import javax.swing.*;
 /**
  * This class represents the MatchPoint application, and holds the main point of
@@ -21,8 +19,6 @@ public class Application
     private static MainFrame matchPointMainFrame;
     public static final String name = "MatchPoint";
     public static final String version = "0.01";
-    private static Preferences systemPrefs;
-    private static Preferences userPrefs;
 
     private Application(){}
 

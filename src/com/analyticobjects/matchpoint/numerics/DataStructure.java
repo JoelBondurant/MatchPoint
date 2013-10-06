@@ -1,11 +1,6 @@
 package com.analyticobjects.matchpoint.numerics;
 
-import com.analyticobjects.matchpoint.*;
 import com.analyticobjects.matchpoint.gui.Strings;
-import java.lang.reflect.InvocationTargetException;
-import javax.swing.table.*;
-import javax.swing.*;
-import com.analyticobjects.matchpoint.gui.*;
 import java.util.Vector;
 
 /**

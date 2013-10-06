@@ -57,6 +57,7 @@ public class DoubleVariable extends Variable
     {
         if(size==0){return null;}
         total = BigDecimal.ZERO;
+		// TODO: Alternatively, one could use Kahan summation, but this works rather quickly.
         for(int i = 0; i<size; i++)
         {
             total = total.add(BigDecimal.valueOf(elementData[i]));
